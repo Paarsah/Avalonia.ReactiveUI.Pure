@@ -1,23 +1,14 @@
 using Avalonia.Controls;
-using Avalonia.OpenTK;
-using OpenTK.Graphics.OpenGL;
+using OpenTK; // This is essential for using OpenTK types
+using OpenTK.Graphics.OpenGL; // Needed for OpenGL functions
 
-namespace Avalonia.ReactiveUI.Pure.Views.UserControls
+namespace Mag3DView.Views.UserControls // Ensure this matches
 {
     public partial class ChartControl : UserControl
     {
         public ChartControl()
         {
             InitializeComponent();
-            Loaded += OnLoaded;
-        }
-
-        private void OnLoaded(object sender, Avalonia.Interactivity.RoutedEventArgs e)
-        {
-            GLControl.MakeCurrent();
-            GL.ClearColor(0.1f, 0.1f, 0.1f, 1.0f); // Set a clear color
-            GL.Clear(ClearBufferMask.ColorBufferBit); // Clear the screen
-            GLControl.SwapBuffers();
         }
     }
 }
